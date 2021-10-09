@@ -1,3 +1,15 @@
 nav.navigation
-  a.navigation__link(href="/") Home
-  a.navigation__link(href="/about") About
+  .navigation__wrapper
+    a.navigation__link(href="/")
+      span.navigation__link__text Luiza Oliva
+      svg.navigation__link__icon
+    
+    ul.navigation__list
+      li.navigation__list__item
+        a.navigation__link(href="/work") Work
+
+      li.navigation__list__item
+        a.navigation__link(href="/agenda") Agenda
+      
+      li.navigation__list__item
+        a.navigation__link(href="/about") About

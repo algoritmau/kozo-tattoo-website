@@ -12,17 +12,10 @@ const dirStyles = path.join(__dirname, 'styles')
 const dirNode = 'node_modules'
 
 module.exports = {
-  entry: [
-    path.join(dirApp, 'index.js'),
-    path.join(dirStyles, 'index.scss')
-  ],
+  entry: [path.join(dirApp, 'index.js'), path.join(dirStyles, 'index.scss')],
 
   resolve: {
-    modules: [
-      dirApp,
-      dirAssets,
-      dirNode
-    ]
+    modules: [dirApp, dirAssets, dirNode]
   },
 
   plugins: [
@@ -30,25 +23,23 @@ module.exports = {
       IS_DEVELOPMENT
     }),
 
-    new webpack.ProvidePlugin({
-
-    }),
+    new webpack.ProvidePlugin({}),
 
     new CopyWebpackPlugin({
       patterns: [
-        {
-          from: './app/service-worker.js',
-          to: ''
-        },
-        {
-          from: './offline.html',
-          to: ''
-        },
+        // {
+        //   from: './app/service-worker.js',
+        //   to: ''
+        // },
+        // {
+        //   from: './offline.html',
+        //   to: ''
+        // },
         {
           from: './shared',
           to: ''
         }
-      ],
+      ]
     }),
 
     new MiniCssExtractPlugin({
@@ -105,7 +96,8 @@ module.exports = {
         test: /\.(jpe?g|png|gif|svg|woff2?|fnt|webp)$/,
         loader: 'file-loader',
         options: {
-          name (file) {
+          // eslint-disable-next-line space-before-function-paren
+          name(file) {
             return '[hash].[ext]'
           }
         }
